@@ -68,10 +68,10 @@ The experiment uses an ideal local simulator rather than a physical quantum proc
 
 10. Acknowledgement
 
-This project uses the open-source Qiskit and Qiskit Aer libraries. The implementation and explanation should be credited according to the actual contributions of 
+This project uses the open-source Qiskit and Qiskit Aer libraries. The implementation and explanation should be credited according to the actual contributions of AI and also the workshop of ibm qiskit fall feast.
 
 11. Code
-12. Experiment: Quantum Coin Toss / Random Bit Generator
+12.  Experiment: Quantum Coin Toss / Random Bit Generator
 Aim: To create a quantum circuit that generates random bits using a qubit and displays the measurement counts.
 
 
