@@ -68,4 +68,59 @@ The experiment uses an ideal local simulator rather than a physical quantum proc
 
 10. Acknowledgement
 
-This project uses the open-source Qiskit and Qiskit Aer libraries. The implementation and explanation should be credited according to the actual contributions of the team members.
+This project uses the open-source Qiskit and Qiskit Aer libraries. The implementation and explanation should be credited according to the actual contributions of 
+
+11. Code
+12. Experiment: Quantum Coin Toss / Random Bit Generator
+Aim: To create a quantum circuit that generates random bits using a qubit and displays the measurement counts.
+
+
+# Install Qiskit and its local simulator
+%pip install -q qiskit qiskit-aer
+
+
+# Import the required libraries
+from qiskit import QuantumCircuit
+from qiskit_aer import AerSimulator
+import matplotlib.pyplot as plt
+
+# Create a local quantum simulator
+simulator = AerSimulator()
+
+# Create a quantum circuit with one qubit and one classical bit
+circuit = QuantumCircuit(1, 1)
+
+# Apply a Hadamard gate to create an equal superposition
+circuit.h(0)
+
+# Measure the qubit and store the result in the classical bit
+circuit.measure(0, 0)
+
+# Display the quantum circuit
+print("Quantum Coin Toss Circuit:")
+print(circuit.draw())
+
+# Run the circuit 1000 times
+job = simulator.run(circuit, shots=1000)
+
+# Get the measurement results
+result = job.result()
+counts = result.get_counts()
+
+# Display the counts
+print("\nQuantum Coin Toss Results:")
+print("Tails (0):", counts.get('0', 0))
+print("Heads (1):", counts.get('1', 0))
+
+
+# Plot the measurement counts
+plt.bar(
+    ["Tails (0)", "Heads (1)"],
+    [counts.get('0', 0), counts.get('1', 0)]
+)
+
+plt.title("Quantum Coin Toss - Measurement Counts")
+plt.xlabel("Outcome")
+plt.ylabel("Number of Occurrences")
+plt.show()
+
